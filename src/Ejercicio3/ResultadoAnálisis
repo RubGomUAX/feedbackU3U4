@@ -1,0 +1,37 @@
+///////////////////////////////////////////////////////////////
+METODOLOGÍA
+///////////////////////////////////////////////////////////////
+
+Se ha utilizado la clase Cronometro incluida en el archivo
+Complejidad.jar para medir el tiempo de ejecución (en milisegundos)
+de los métodos de la clase MetodosPrueba variando el tamaño del
+parámetro de entrada n. A partir de estos tiempos, se ha estimado
+el orden de complejidad de cada método.
+
+///////////////////////////////////////////////////////////////
+TABLA DE TIEMPOS Y COMPLEJIDADES
+///////////////////////////////////////////////////////////////
+
+| Método | Tamaño `n`  | Tiempos (ms)          | Crecimiento Observado  | Complejidad Estimada |
+| ------ | ----------- | --------------------- | ---------------------- | -------------------- |
+| `m1`   | 2, 4, 8, 16 | 249, 991, 3958, 15609 | x4 por duplicación     | O(n²)                |
+| `m2`   | 2, 4, 8, 16 | 32, 61, 123, 250      | Aproximadamente lineal | O(n)                 |
+| `m3`   | 2, 4, 8, 16 | 123, 249, 493, 989    | Lineal                 | O(n)                 |
+| `m4`   | 2, 4, 8, 16 | 127, 839, 7362, 60743 | x\~8 por duplicación   | O(n³)                |
+| `m5`   | 2, 4, 8, 16 | 310, 619, 927, 1238   | Crece lentamente       | O(log n)             |
+| `m6`   | 2, 4, 8, 16 | 10, 5, 9, 18          | Lineal (ligero ruido)  | O(n)                 |
+| `m7`   | 2, 4, 8, 16 | 106, 212, 324, 434    | Lento, casi constante  | O(log n)             |
+
+///////////////////////////////////////////////////////////////
+TABLA DE TIEMPOS Y COMPLEJIDADES
+///////////////////////////////////////////////////////////////
+
+Métodos m1 y m4 presentan tiempos de ejecución con crecimientos
+cuadrático y cúbico respectivamente, coherentes con su estructura
+de bucles anidados.
+
+Métodos m2, m3, m6 tienen comportamiento lineal, ya que contienen
+un solo bucle dependiente de n.
+
+Métodos m5 y m7 tienen un bucle de tipo i *= 2, lo que implica
+una complejidad logarítmica.
