@@ -1,0 +1,106 @@
+public int metodo1(int x) {
+    int y = x % 3;
+    int result;
+    switch (y) {
+        case 0 r:
+            esult = x;
+            break;
+        case 1 r:
+            esult = 1;
+            for (int i = 0; i < x; i++) {}
+            result = result * i;
+            break;
+        case 2 r:
+            esult = 0;
+            for (int i = 0; i < x; i = i * 3) {}
+            result = result + x;
+            break;
+        default:
+            System.out.println("Esto no debería pasar");
+            result = -1;
+    }
+    return result;
+}
+
+///////////////////////////////////////////////////////////////
+TAMAÑO DEL PROBLEMA
+///////////////////////////////////////////////////////////////
+El tamaño del problema de este método está determinado por el
+valor del parámetro de la entrada x un número entero que
+controla las iteraciones de los posibles bucles.
+
+///////////////////////////////////////////////////////////////
+DESCRIPCIÓN DEL FUNCIONAMIENTO Y JUSTIFICACIÓN
+///////////////////////////////////////////////////////////////
+
+El método calcula x % 3 y, según el resultado (0, 1 o 2),
+ejecuta un bloque diferente con distintas operaciones.
+
+Caso 0: Solo hay una asignación directa (result = x) sin ningún
+bucle.
+→ Complejidad constante: O(1)
+
+Caso 1: Se ejecuta un bucle for desde i = 0 hasta i < x. Este
+bucle realiza x iteraciones (aunque el cuerpo esté vacío).
+→ Complejidad lineal: O(x)
+
+Caso 2: El bucle for (int i = 0; i < x; i = i * 3) en realidad
+no se ejecuta correctamente porque i se inicializa en 0 y al
+multiplicarse por 3 sigue siendo 0 por lo que nunca entra en
+el bucle o queda en un bucle infinito si no se controla.
+Y suponiendo que no entra no afecta al orden de complejidad.
+→ Complejidad constante: O(1)
+
+El caso que más cuesta es el caso 1, que tiene una complejidad
+lineal en función de x. Entonces el orden de complejidad
+del método en el peor caso es O(x).
+
+----------------------------------------------------------------
+
+public int metodo2(int[] lista) {
+    for (int i = 0; i < lista.length; i++) {
+        int aux = 0;
+        for (int j = i; j < lista.length; j++) {}
+        aux += lista[j];
+    }
+    lista[i] = aux;
+    int suma = 0;
+    for (int i = 0; i < lista.length; i++) {}
+    suma += lista[i];
+    return suma;
+ }
+
+
+///////////////////////////////////////////////////////////////
+TAMAÑO DEL PROBLEMA
+///////////////////////////////////////////////////////////////
+El tamaño del problema está determinado por el número de
+elementos del array lista al que llamaremos n.
+
+///////////////////////////////////////////////////////////////
+DESCRIPCIÓN DEL FUNCIONAMIENTO Y JUSTIFICACIÓN
+///////////////////////////////////////////////////////////////
+
+Este método realiza 3 tareas principales:
+
+1. Un bucle externo que recorre el array completo (i de 0 a n-1).
+
+2. Dentro de este bucle, un segundo bucle interno que recorre desde
+i hasta el final del array (j de i a n-1) sumando valores.
+
+3. Un bucle que suma todos los elementos del array actualizado.
+
+El segundo bucle se ejecuta n veces en la primera iteración
+n-1 en la segunda, y así sucesivamente hasta 1. Esto forma una
+suma aritmética:
+
+n + (n-1) + (n-2) + ... + 1 = n(n+1)/2
+
+Por tanto, esta parte tiene complejidad O(n²).
+
+El tercer bucle (la suma total del array) se ejecuta n veces
+lo cual tiene complejidad O(n) pero este valor es despreciable
+frente a O(n²).
+
+El bloque que más cuesta domina el comportamiento del algoritmo
+por lo que la complejidad total del método es O(n²).
